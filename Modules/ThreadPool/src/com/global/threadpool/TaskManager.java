@@ -13,15 +13,16 @@ import static com.global.threadpool.Util.compareFlags;
  * @author Róbert Dóczi
  *         Date: 2014.12.02.
  */
+@SuppressWarnings("WeakerAccess")
 public class TaskManager {
 
-    private Channel eventChannel;
+    private final Channel eventChannel;
 
-    private List<LinkedBlockingDeque<Task>> taskList;
-    private BlockingDeque<Task>             backgroundTasks;
-    private LinkedBlockingDeque<Task>       syncTasks;
+    private final List<LinkedBlockingDeque<Task>> taskList;
+    private final BlockingDeque<Task>             backgroundTasks;
+    private final LinkedBlockingDeque<Task>       syncTasks;
 
-    private List<Thread> threads;
+    private final List<Thread> threads;
 
     private boolean running;
 

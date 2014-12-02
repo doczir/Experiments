@@ -30,11 +30,11 @@ public class Channel {
         return instance;
     }
 
-    private Map<Class, InternalChannel<?>> instances = new HashMap<>();
+    private final Map<Class, InternalChannel<?>> instances = new HashMap<>();
 
     private class InternalChannel<Message> {
 
-        private List<Consumer<Message>> handlers;
+        private final List<Consumer<Message>> handlers;
 
         private InternalChannel() {
             handlers = new ArrayList<>();

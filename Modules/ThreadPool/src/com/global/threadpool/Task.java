@@ -6,7 +6,7 @@ package com.global.threadpool;
  */
 public abstract class Task {
 
-    private Flags flag;
+    private final Flags flag;
 
     public Task(Flags flag) {
         this.flag = flag;
@@ -19,7 +19,7 @@ public abstract class Task {
     }
 
     public static class TaskCompleted {
-        private Task task;
+        private final Task task;
 
         public TaskCompleted(Task task) {
             this.task = task;
@@ -48,7 +48,7 @@ public abstract class Task {
         BackgroundRepeatingSync(Threadsafe.value | Repeating.value | FrameSync.value)
         ;
 
-        private int value;
+        private final int value;
 
         Flags(int value) {
             this.value = value;
